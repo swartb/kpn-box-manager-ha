@@ -5,10 +5,14 @@ HACS custom integration voor lokaal beheer van een KPN Box. De benodigde client 
 ## Functies
 
 - Configuratie via de Home Assistant UI.
-- Overzicht van DHCP-reserveringen en portforwards.
+- DHCP-adressen met actieve, inactieve en gereserveerde aantallen.
+- DHCP-configuratie: bereik, gateway, DNS en leasetijd.
+- DHCP-reserveringen en portforwards.
+- Internet-, WAN-, firmware-, hardware- en routerinformatie.
+- Automatische lokale synchronisatie iedere vijf minuten.
 - Reserveringen toevoegen, verplaatsen en verwijderen.
 - Portforwards toevoegen en verwijderen.
-- Directe synchronisatie na iedere geslaagde wijziging.
+- Directe coordinator-refresh na iedere geslaagde wijziging.
 - Controle van de werkelijke modemstatus, omdat sommige firmware-antwoorden een onjuiste succeswaarde geven.
 
 Getest met KPN Box 14. Andere modellen kunnen afwijken.
