@@ -1,0 +1,13 @@
+{
+  "domain": "kpn_box_manager",
+  "name": "KPN Box Manager",
+  "codeowners": ["@swartb"],
+  "config_flow": true,
+  "documentation": "https://github.com/swartb/kpn-box-manager-ha",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/swartb/kpn-box-manager-ha/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.1.0"
+}

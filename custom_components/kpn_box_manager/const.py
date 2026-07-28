@@ -1,0 +1,6 @@
+DOMAIN = "kpn_box_manager"
+CONF_HOST = "host"
+CONF_USERNAME = "username"
+CONF_PASSWORD = "password"
+DEFAULT_HOST = "192.168.2.254"
+DEFAULT_USERNAME = "admin"

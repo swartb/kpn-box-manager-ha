@@ -1,0 +1,22 @@
+{
+  "title": "KPN Box Manager",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Verbind met de KPN Box",
+        "data": {
+          "host": "Host",
+          "username": "Gebruikersnaam",
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken met de KPN Box",
+      "invalid_auth": "Ongeldige inloggegevens"
+    },
+    "abort": {
+      "already_configured": "Deze KPN Box is al geconfigureerd"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+add_reservation:
+  name: Reservering toevoegen of verplaatsen
+  fields:
+    mac_address:
+      name: MAC-adres
+      required: true
+      selector:
+        text:
+    ip_address:
+      name: IP-adres
+      required: true
+      selector:
+        text:
+delete_reservation:
+  name: Reservering verwijderen
+  fields:
+    mac_address:
+      name: MAC-adres
+      required: true
+      selector:
+        text:
+add_port_forward:
+  name: Portforward toevoegen
+  fields:
+    name:
+      name: Naam
+      required: true
+      selector:
+        text:
+    destination_ip:
+      name: Doel-IP
+      required: true
+      selector:
+        text:
+    external_port:
+      name: Externe poort
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 65535
+    internal_port:
+      name: Interne poort
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 65535
+    protocol:
+      name: Protocol
+      required: true
+      default: "17"
+      selector:
+        select:
+          options:
+            - label: UDP
+              value: "17"
+            - label: TCP
+              value: "6"
+            - label: TCP + UDP
+              value: "6,17"
+delete_port_forward:
+  name: Portforward verwijderen
+  fields:
+    rule_id:
+      name: Regel-ID
+      required: true
+      selector:
+        text:
+    destination_ip:
+      name: Doel-IP
+      required: true
+      selector:
+        text:
+    origin:
+      name: Herkomst
+      default: webui
+      selector:
+        select:
+          options:
+            - webui
+            - upnp
