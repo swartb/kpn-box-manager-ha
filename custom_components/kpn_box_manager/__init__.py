@@ -8,11 +8,13 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers import config_validation as cv
 
 from .const import DOMAIN
 from .coordinator import KPNBoxCoordinator, create_client
 from .frontend import async_register_frontend
 
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 PLATFORMS = ["sensor"]
 MAC_RE = re.compile(r"^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$")
 ADD_RESERVATION_SCHEMA = vol.Schema({vol.Required("mac_address"): str, vol.Required("ip_address"): str})
