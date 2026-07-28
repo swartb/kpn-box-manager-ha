@@ -13,6 +13,7 @@ HACS custom integration voor lokaal beheer van een KPN Box. De benodigde client 
 - Reserveringen toevoegen, verplaatsen en verwijderen.
 - Portforwards toevoegen en verwijderen.
 - Directe coordinator-refresh na iedere geslaagde wijziging.
+- Gebundelde Lovelace-kaart voor visueel beheer, zonder externe custom-card-afhankelijkheden.
 - Controle van de werkelijke modemstatus, omdat sommige firmware-antwoorden een onjuiste succeswaarde geven.
 
 Getest met KPN Box 14. Andere modellen kunnen afwijken.
@@ -34,6 +35,18 @@ Getest met KPN Box 14. Andere modellen kunnen afwijken.
 - `kpn_box_manager.delete_port_forward`
 
 Gebruik de Home Assistant-actie-editor om de velden in te vullen. Verwijderingen en netwerkveranderingen kunnen verbindingen onderbreken.
+
+## Lovelace-kaart
+
+De frontendkaart wordt samen met de integratie geïnstalleerd. Er zijn geen externe custom cards nodig en bestaande custom cards worden niet gewijzigd. Voeg een handmatige kaart toe:
+
+```yaml
+type: custom:kpn-box-manager-card
+title: KPN Box beheer
+section: both
+```
+
+`section` mag `both`, `reservations` of `forwards` zijn. De unieke kaartnaam en resource-URL voorkomen conflicten; als dezelfde kaart al geregistreerd is, wordt geen tweede custom element aangemaakt.
 
 ## Ingebedde client
 

@@ -11,6 +11,7 @@ from homeassistant.exceptions import HomeAssistantError
 
 from .const import DOMAIN
 from .coordinator import KPNBoxCoordinator, create_client
+from .frontend import async_register_frontend
 
 PLATFORMS = ["sensor"]
 MAC_RE = re.compile(r"^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$")
@@ -18,6 +19,11 @@ ADD_RESERVATION_SCHEMA = vol.Schema({vol.Required("mac_address"): str, vol.Requi
 DELETE_RESERVATION_SCHEMA = vol.Schema({vol.Required("mac_address"): str})
 ADD_FORWARD_SCHEMA = vol.Schema({vol.Required("name"): str, vol.Required("destination_ip"): str, vol.Required("external_port"): vol.All(vol.Coerce(int), vol.Range(min=1, max=65535)), vol.Required("internal_port"): vol.All(vol.Coerce(int), vol.Range(min=1, max=65535)), vol.Required("protocol", default="17"): vol.In({"6", "17", "6,17"})})
 DELETE_FORWARD_SCHEMA = vol.Schema({vol.Required("rule_id"): str, vol.Required("destination_ip"): str, vol.Optional("origin", default="webui"): vol.In({"webui", "upnp"})})
+
+
+async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
+    await async_register_frontend(hass)
+    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
