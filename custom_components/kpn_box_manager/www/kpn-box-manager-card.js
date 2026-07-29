@@ -17,7 +17,7 @@
     set hass(hass) {
       const previous = this._hass;
       this._hass = hass;
-      const keys = ["sensor.kpn_box_dhcp_reserveringen", "sensor.kpn_box_port_forwards"];
+      const keys = ["sensor.kpn_box_dhcp_reserveringen", "sensor.kpn_box_portforwards"];
       if (!previous || keys.some((key) => previous.states[key]?.last_updated !== hass.states[key]?.last_updated)) this.render();
     }
 
@@ -26,7 +26,7 @@
     render() {
       if (!this.shadowRoot || !this.config || !this._hass) return;
       const reservationState = this._hass.states["sensor.kpn_box_dhcp_reserveringen"];
-      const forwardState = this._hass.states["sensor.kpn_box_port_forwards"];
+      const forwardState = this._hass.states["sensor.kpn_box_portforwards"];
       const reservations = reservationState?.attributes?.reservations || [];
       const forwards = forwardState?.attributes?.rules || [];
       const showReservations = ["both", "reservations"].includes(this.config.section);
@@ -104,5 +104,5 @@
   customElements.define(TAG, KPNBoxManagerCard);
   window.customCards = window.customCards || [];
   if (!window.customCards.some((card) => card.type === TAG)) window.customCards.push({ type: TAG, name: "KPN Box Manager", description: "Beheer DHCP-reserveringen en portforwards", preview: true });
-  console.info("%c KPN Box Manager Card 0.3.0 ", "color:white;background:#186faf;font-weight:bold");
+  console.info("%c KPN Box Manager Card 0.3.1 ", "color:white;background:#186faf;font-weight:bold");
 })();

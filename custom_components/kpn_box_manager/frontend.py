@@ -12,4 +12,4 @@ async def async_register_frontend(hass: HomeAssistant) -> None:
     await hass.http.async_register_static_paths([
         StaticPathConfig(CARD_URL, str(CARD_PATH), cache_headers=True),
     ])
-    add_extra_js_url(hass, f"{CARD_URL}?v=0.3.0")
+    add_extra_js_url(hass, f"{CARD_URL}?v=0.3.1")
