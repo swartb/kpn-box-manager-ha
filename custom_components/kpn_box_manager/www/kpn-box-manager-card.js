@@ -104,5 +104,5 @@
   customElements.define(TAG, KPNBoxManagerCard);
   window.customCards = window.customCards || [];
   if (!window.customCards.some((card) => card.type === TAG)) window.customCards.push({ type: TAG, name: "KPN Box Manager", description: "Beheer DHCP-reserveringen en portforwards", preview: true });
-  console.info("%c KPN Box Manager Card 0.3.2 ", "color:white;background:#186faf;font-weight:bold");
+  console.info("%c KPN Box Manager Card 0.3.3 ", "color:white;background:#186faf;font-weight:bold");
 })();
